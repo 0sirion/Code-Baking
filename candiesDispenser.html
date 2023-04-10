@@ -1,126 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body id="idBody">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body id="idBody">
+    <label for="cars">Choose an Html Element below:</label>
 
-  <label for="cars">Choose an Html Element below:</label>
+    <select id="selectId" onchange="choose(this)">
+      <option value="">select any</option>
+      <option value="div1">Sample Div</option>
+      <option value="p">Sample paragraph</option>
+      <option value="btn">Btn sample</option>
+      <option value="tbl">Table</option>
+      <option value="a">Anchor Tag</option>
+      <option value="randomArray">Array</option>
+      <option value="randomArrayTable">Table with randoms</option>
+    </select>
 
-  <select id="selectId" onchange="choose(this)">
-  <option value="">select any</option>
-  <option value="div1">Sample Div</option>
-  <option value="p">Sample paragraph</option>
-  <option value="btn">Btn sample</option>
-  <option value="tbl">Table</option>
-  <option value="a">Anchor Tag</option>
-  <option value="randomArray">Array </option>
-  </select>
+    <main id="mainContent">
+      <section></section>
+    </main>
+    <script>
+      let main = document.getElementById("mainContent");
 
+      provaTesto = document.createElement("p");
+      provaTesto.setAttribute("id", "idProvaTesto");
+      main.appendChild(provaTesto);
 
-  <main id="mainContent">
-    <section>
-      
-    </section>
-    
-  </main>
-  <script>
-    let main = document.getElementById("mainContent");
+      div1 = document.createElement("div");
 
-    provaTesto = document.createElement('p');
-    provaTesto.setAttribute('id','idProvaTesto')
-    main.appendChild(provaTesto);
+      a1 = document.createElement("a");
 
-    div1 = document.createElement('div');
-    
+      function choose(element) {
+        // console.log(element) nota la differenza (vantaggio ulteriori modifiche sull'elemento)
+        // console.log(document.getElementById("selectId").value);
 
-    a1 = document.createElement('a');
+        switch (element.value) {
+          case "div1":
+            main.appendChild(div1);
+            div1.innerText = "I'm a div!"; // elemento gia creato
+            break;
 
+          case "p":
+            p1 = document.createElement("p");
+            main.appendChild(p1);
+            p1.innerText = "I'm a paragraph";
+            break;
 
-    
-    function choose (element){
-      // console.log(element) nota la differenza (vantaggio ulteriori modifiche sull'elemento)
-      // console.log(document.getElementById("selectId").value);
+          case "btn":
+            btn1 = document.createElement("input");
+            btn1.setAttribute("type", "button");
+            btn1.setAttribute("value", "pastry");
+            main.appendChild(btn1);
+            break;
 
-      
-      switch (element.value) {
-        
-        case 'div1' :
-          main.appendChild(div1);
-          div1.innerText = "I'm a div!" // elemento gia creato
-          break;
+          case "tbl":
+            table1 = document.createElement("table");
+            table1.setAttribute("border", "3");
+            main.appendChild(table1);
+            let n = prompt("number of desired rows:");
+            let m = prompt("number of desired columns");
+            tabmaker(n, m);
 
-        case 'p' :
-          p1 = document.createElement('p');
-          main.appendChild(p1);
-          p1.innerText = "I'm a paragraph"
-          break;
+            function tabmaker(n, m) {
+              for (i = 1; i <= n; i++) {
+                row = document.createElement("tr");
+                table1.appendChild(row);
 
-        case 'btn' :
-        btn1 = document.createElement('input');
-        btn1.setAttribute('type', 'button' );
-        btn1.setAttribute('value', 'pastry');
-        main.appendChild(btn1);
-          break;
-        
-        case 'tbl' :
-          table1 = document.createElement('table')
-          table1.setAttribute('border', '3')
-          main.appendChild(table1)
-          let n = prompt('number of desired rows:')
-          let m = prompt('number of desired columns')
-          tabmaker(n,m)
-
-          function tabmaker(n,m) {
-          for (i = 1; i <= n; i++) {
-            row = document.createElement('tr');
-            table1.appendChild(row);
-            
-            
-              for ( j = 1; j <= m; j++) {
-                tdata = document.createElement('td')
-                tdata.innerHTML = `'Cell (row ${i}; cl ${j})'`;
-                row.appendChild(tdata);
+                for (j = 1; j <= m; j++) {
+                  tdata = document.createElement("td");
+                  tdata.innerHTML = `'Cell (row ${i}; cl ${j})'`;
+                  row.appendChild(tdata);
+                }
               }
             }
-          }
-          break;
-          
-          case 'randomArray': 
+            break;
 
-
-            let k = prompt('number of elements in array')
+          case "randomArray":
+            let k = prompt("Array lenght: ");
             let arr = [];
 
-            for (i=0; i < k; i++) {
+            for (i = 0; i < k; i++) {
+              arr[i] = Math.floor(Math.random() * 10);
 
-              arr[i] = Math.floor(Math.random() * 10)
-              console.log(arr);
-              provaTesto.innerText = "[" + arr + "]"
+              provaTesto.innerText = "[" + arr + "]";
             }
+            console.log(arr);
 
+            break;
 
+          case "randomArrayTable":
+            let r;
 
+            table1 = document.createElement("table");
+            table1.setAttribute("border", "3");
+            main.appendChild(table1);
+
+            let tabX = 5;
+            let tabY = 5;
+            let arr1 = [];
+            tabmaker(tabX, tabY);
             
 
 
-          
+            function tabmaker(n, m) {
+              for (i = 1; i <= n; i++) {
+                row = document.createElement("tr");
+                table1.appendChild(row);
 
+                  for (j = 1; j <= m; j++) {
+                    tdata = document.createElement("td");
+                    arr1[j] = Math.floor(Math.random() * 10);
+                    tdata.innerHTML = arr1[j];
+                    
+
+
+
+
+                  // tdata.innerHTML =  `Cell row ${i}; cl ${j}; value:  ` + Math.floor(Math.random() * 10);
+                  // tdata.innerHTML = Math.floor(Math.random() * 10);
+                  row.appendChild(tdata);
+                }
+              }
+            }
+
+        }
+        element.selectedIndex = 0; // reset to default option
       }
-      element.selectedIndex = 0; // reset to default option 
 
-    }
-
-
-
-    function pageLoading(){
-      tabmaker(n,m)
-    }
-
-  </script>
-  
-</body>
+      function pageLoading() {
+        tabmaker(n, m);
+      }
+    </script>
+  </body>
 </html>
