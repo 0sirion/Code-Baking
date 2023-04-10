@@ -17,15 +17,22 @@
   <option value="btn">Btn sample</option>
   <option value="tbl">Table</option>
   <option value="a">Anchor Tag</option>
+  <option value="randomArray">Array </option>
   </select>
 
 
   <main id="mainContent">
+    <section>
+      
+    </section>
     
   </main>
   <script>
     let main = document.getElementById("mainContent");
 
+    provaTesto = document.createElement('p');
+    provaTesto.setAttribute('id','idProvaTesto')
+    main.appendChild(provaTesto);
 
     div1 = document.createElement('div');
     
@@ -33,7 +40,7 @@
     a1 = document.createElement('a');
 
 
-
+    
     function choose (element){
       // console.log(element) nota la differenza (vantaggio ulteriori modifiche sull'elemento)
       // console.log(document.getElementById("selectId").value);
@@ -43,13 +50,13 @@
         
         case 'div1' :
           main.appendChild(div1);
-          div1.innerText = 'io sono un div!' // elemento gia creato
+          div1.innerText = "I'm a div!" // elemento gia creato
           break;
 
         case 'p' :
           p1 = document.createElement('p');
           main.appendChild(p1);
-          p1.innerText = 'io sono un paragrafo'
+          p1.innerText = "I'm a paragraph"
           break;
 
         case 'btn' :
@@ -81,6 +88,24 @@
             }
           }
           break;
+          
+          case 'randomArray': 
+
+
+            let k = prompt('number of elements in array')
+            let arr = [];
+
+            for (i=0; i < k; i++) {
+
+              arr[i] = Math.floor(Math.random() * 10)
+              console.log(arr);
+              provaTesto.innerText = "[" + arr + "]"
+            }
+
+
+
+            
+
 
           
 
