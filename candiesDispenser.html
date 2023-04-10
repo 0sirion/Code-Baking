@@ -29,7 +29,6 @@
 
     div1 = document.createElement('div');
     
-    
 
     a1 = document.createElement('a');
 
@@ -46,19 +45,42 @@
           main.appendChild(div1);
           div1.innerText = 'io sono un div!' // elemento gia creato
           break;
+
         case 'p' :
           p1 = document.createElement('p');
           main.appendChild(p1);
           p1.innerText = 'io sono un paragrafo'
           break;
+
         case 'btn' :
         btn1 = document.createElement('input');
         btn1.setAttribute('type', 'button' );
         btn1.setAttribute('value', 'pastry');
         main.appendChild(btn1);
           break;
-
         
+        case 'tbl' :
+          table1 = document.createElement('table')
+          table1.setAttribute('border', '3')
+          main.appendChild(table1)
+          let n = prompt('number of desired rows:')
+          let m = prompt('number of desired columns')
+          tabmaker(n,m)
+
+          function tabmaker(n,m) {
+          for (i = 1; i <= n; i++) {
+            tableTitle = document.createElement('th')
+            row = document.createElement('tr');
+            table1.appendChild(row);
+              for ( j = 1; j <= m; j++) {
+                tdata = document.createElement('td')
+                tdata.innerHTML = `'Cell (row ${i}; cl ${j})'`;
+                row.appendChild(tdata);
+              }
+            }
+          }
+          break;
+
           
 
       }
@@ -69,7 +91,7 @@
 
 
     function pageLoading(){
-
+      tabmaker(n,m)
     }
 
   </script>
