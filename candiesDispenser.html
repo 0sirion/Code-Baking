@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body id="idBody">
+
+  <label for="cars">Choose a car:</label>
+
+  <select id="selectId" onchange="choose(this)">
+  <option value="">select any</option>
+  <option value="div1">Sample Div</option>
+  <option value="p">Sample paragraph</option>
+  <option value="btn">Btn sample</option>
+  <option value="tbl">Table</option>
+  <option value="a">Anchor Tag</option>
+  </select>
+
+
+  <main id="mainContent">
+    
+  </main>
+  <script>
+    let main = document.getElementById("mainContent");
+
+
+    div1 = document.createElement('div');
+    
+    
+
+    a1 = document.createElement('a');
+
+
+
+    function choose (element){
+      // console.log(element) nota la differenza (vantaggio ulteriori modifiche sull'elemento)
+      // console.log(document.getElementById("selectId").value);
+
+      
+      switch (element.value) {
+        
+        case 'div1' :
+          main.appendChild(div1);
+          div1.innerText = 'io sono un div!' // elemento gia creato
+          break;
+        case 'p' :
+          p1 = document.createElement('p');
+          main.appendChild(p1);
+          p1.innerText = 'io sono un paragrafo'
+          break;
+        case 'btn' :
+        btn1 = document.createElement('input');
+        btn1.setAttribute('type', 'button' );
+        btn1.setAttribute('value', 'pastry');
+        main.appendChild(btn1);
+          break;
+
+        
+          
+
+      }
+      element.selectedIndex = 0; // reset to default option 
+
+    }
+
+
+
+    function pageLoading(){
+
+    }
+
+  </script>
+  
+</body>
+</html>

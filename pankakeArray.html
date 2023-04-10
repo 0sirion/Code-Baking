@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+    <body id="idBody" onload="pageLoading()">
+      <main id="idMainContent">
+        <script>
+          myArray1 = [];
+          myArray2 = [];
+          myArray3 = [];
+          listaX = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+          
+          
+
+
+
+          function myArrayFill(listToCopy, arrayToFill, itsLength) {
+            for (let i = 0; i <itsLength; i++) {
+              arrayToFill[i] = listToCopy[Math.floor(Math.random()*(listToCopy.length-2))];
+            }
+            console.log("this is your new array: "+ arrayToFill); 
+            return arrayToFill;
+            
+          }
+          
+          function evenPrinter(anArray) {
+            for(i=0; i < anArray.length; i++){
+              if (i%2 == 0) {
+                myArray2.push(anArray[i]);
+              }
+              if(anArray[i]%2 == 0){
+                myArray3.push(anArray[i]);
+              }
+              
+            }
+            return myArray2;
+            return myArray3;
+            console.log(myArray2);
+            console.log(myArray3);
+            
+          }
+
+          
+          function paragraph2Reveal (){
+            paragraph2.removeAttribute('hidden');
+          }
+          
+          function  paragraph3Reveal (){
+            paragraph3.removeAttribute('hidden');
+          }
+          
+          // function paragraphReveal (){
+          //  paragraph2.removeAttribute('hidden')
+          // }
+          
+
+          function pageLoading() {
+
+
+          myArrayFill(listaX,myArray1,10);
+          evenPrinter(myArray1)
+
+
+          
+
+          console.log('this is  new array with even index, and caramel: ' + myArray2)
+          console.log('This is my new array with even values, and chocolate :' + myArray3)
+            
+          pageDiv1 = document.createElement('div');
+          pageDiv1.setAttribute('id','idPageDiv1');
+          
+          fieldset1 = document.createElement('fieldset');
+          fieldset1.setAttribute('id', 'idFieldset1');
+
+          legend1 = document.createElement('legend');
+          legend1.setAttribute('id','idLegend1');
+
+          paragraph1 = document.createElement('p');
+          paragraph1.setAttribute('id','idParagraph1');
+          
+          paragraph2 = document.createElement('p');
+          paragraph2.setAttribute('id', 'idParagraph2');
+          paragraph2.setAttribute('hidden','true');
+
+          paragraph3 = document.createElement('p');
+          paragraph3.setAttribute('id','idParagraph3');
+          paragraph3.setAttribute('hidden','true');
+
+          btnDiv1 = document.createElement('input');
+          btnDiv1.setAttribute('id', 'idBtnDiv1')
+          btnDiv1.setAttribute('type', 'button');
+          btnDiv1.setAttribute('value', 'Add caramel!')
+          btnDiv1.setAttribute('onclick', 'paragraph2Reveal()')
+
+          btnDiv2 = document.createElement('input');
+          btnDiv2.setAttribute('id','idBtnDiv2');
+          btnDiv2.setAttribute('type','button');
+          btnDiv2.setAttribute('value','Add cream and chocolate!')
+          btnDiv2.setAttribute('onclick','paragraph3Reveal()');
+
+
+         
+          
+          
+
+          main = document.getElementById("idMainContent");
+          main.appendChild(pageDiv1);
+          pageDiv1.appendChild(fieldset1);
+          fieldset1.appendChild(legend1);
+          fieldset1.appendChild(paragraph1);
+          fieldset1.appendChild(paragraph2);
+          fieldset1.appendChild(paragraph3);
+          fieldset1.appendChild(btnDiv1)
+          fieldset1.appendChild(btnDiv2)
+
+
+          legend1.innerHTML= 'Pankake Array'
+          paragraph1.innerHTML= 'This is your pankake random array: ' + myArray1;
+          paragraph2.innerHTML= 'This is your  new array with even index and caramel: ' + myArray2;
+          paragraph3.innerHTML= 'And this is your new array with even values, milky cream and chocolate: ' + myArray3;
+          // paragraph3.innerText= 'ciao ciao!'
+        }
+
+
+        </script>
+
+      </main>
+  
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grill table</title>
+</head>
+<body id="idBody" onload="pageLoading()">
+  <main id="mainContent">
+    
+  </main>
+  <script>
+
+    main = document.getElementById("mainContent")
+
+    par1 = document.createElement('p');
+
+    par1.innerText = 'Grill some code!';
+
+    grill = document.createElement('table')
+    grill.setAttribute('border', '3 ')
+
+     
+    
+    function preventNonNumericalInput(e) {
+      e = e || window.event;
+      var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+      var charStr = String.fromCharCode(charCode);
+
+      if (!charStr.match(/^[0-9]+$/))
+        e.preventDefault();
+}
+
+   
+
+    function appendInMain(elToAppend) {
+      
+      return main.appendChild(elToAppend);
+
+    }
+
+
+    
+
+
+    
+    function makeTable(n,m) {
+
+      for ( i = 1; i <= n; i++) {
+        let row = document.createElement('tr')
+        grill.appendChild(row)
+
+        for(j = 1; j <= m; j++) {
+
+          let cell = document.createElement('td');
+          cell.innerText = `"cell in row ${i}, column ${j}"`;
+
+          row.appendChild(cell);
+
+        }
+      }
+
+      let grillImg = document.createElement('img');
+      grillImg.setAttribute('src', 'https:shorturl.at/lACE3');
+      grillImg.setAttribute('width', 250);
+      appendInMain(grillImg)
+
+    }
+    
+    
+
+ let  n = prompt('ins numero righe');
+ let m = prompt('ins numero colonne');
+
+  function pageLoading(){
+    appendInMain(par1)
+    appendInMain(grill)
+
+    makeTable(n,m)
+   
+
+  }
+  </script>
+  
+</body>
+</html>

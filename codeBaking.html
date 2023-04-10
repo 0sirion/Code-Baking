@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Baking</title>
+</head>
+<body id="idBody" onload="pageLoading()">
+  <main id="idMainContent">
+   
+   
+  </main>
+  <script>
+    randomArray = [5,5,11,4,12,13,6,13,3,8];
+    emptyArray = [];
+    itsLength = randomArray.lenght;
+    let btnStr = ' <input type="button" value="cookie">';
+    let paragraph1;
+    let desiredBtns;
+    let paragraph2;
+    let x;
+    let xValueCopy
+    
+    let go
+
+  
+
+    
+    function arrayFiller(sourceArray, emptyArray, itsLength) {
+      for (i = 0; i < itsLength; i++) {
+        emptyArray[i] = sourceArray[i]*3;
+      }
+      return emptyArray;
+    }
+
+    function createBtns(desiredBtns){
+      for (i = 0; i < desiredBtns; i ++) {
+        return paragraph1.innerHTML=btnStr.repeat(desiredBtns);
+        // return paragraph2.appendChild(btnStr.repeat(desiredBtns));
+      }
+
+    }
+
+
+      function pageLoading() {
+      
+      arrayFiller(randomArray,emptyArray, 10)
+
+      // console.log("This is your new array:" + emptyArray);
+
+
+
+      main = document.getElementById('idMainContent')
+
+      div1 = document.createElement('div');
+
+      fieldset1 = document.createElement('fieldset');
+
+      legend1 = document.createElement('legend');
+
+      paragraph1 = document.createElement('p');
+      paragraph1.setAttribute('id','idParagraph1')
+
+      paragraph2 = document.createElement('p');
+      paragraph2.setAttribute('id','idParagraph2');
+
+      x = document.createElement('input');
+      x.setAttribute('id','idXinput');
+      x.setAttribute('type','number');
+      x.setAttribute('placeholder', 'Number of cookies');
+      
+      let desiredBtns = x.value;
+
+
+      go
+
+      // main.appendChild(div1);
+      // div1.appendChild(fieldset1);
+      // fieldset1.appendChild(legend1);
+      // legend1.innerHTML = "Esercizio";
+      // div1.appendChild(paragraph1);
+      // fieldset1.appendChild(paragraph1)
+      // paragraph1.appendChild(x)
+      // div1.appendChild(paragraph2);
+      
+
+
+      main.appendChild(div1);
+      div1.appendChild(fieldset1);
+      fieldset1.appendChild(legend1);
+      legend1.innerHTML = "Code Baking";
+
+
+      fieldset1.appendChild(paragraph1)
+      fieldset1.appendChild(paragraph2)
+
+      paragraph2.appendChild(x)
+
+
+      // createBtns(x.value)
+
+      let def
+      def = document.createElement('input');
+      def.setAttribute('type', 'button');
+      def.setAttribute('value','click me to make cookies!')
+      def.setAttribute('onclick', 'createBtns(x.value)' )
+
+      paragraph2.appendChild(def)
+
+       
+    }
+    
+  </script>
+</body>
+</html>
