@@ -8,7 +8,7 @@
 </head>
 <body id="idBody">
 
-  <label for="cars">Choose a car:</label>
+  <label for="cars">Choose an Html Element below:</label>
 
   <select id="selectId" onchange="choose(this)">
   <option value="">select any</option>
@@ -69,9 +69,10 @@
 
           function tabmaker(n,m) {
           for (i = 1; i <= n; i++) {
-            tableTitle = document.createElement('th')
             row = document.createElement('tr');
             table1.appendChild(row);
+            
+            
               for ( j = 1; j <= m; j++) {
                 tdata = document.createElement('td')
                 tdata.innerHTML = `'Cell (row ${i}; cl ${j})'`;
