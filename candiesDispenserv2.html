@@ -48,6 +48,13 @@
         field1.appendChild(pSample);
       }
 
+      function makeImg() {
+        let imgSample = document.createElement("img");
+        imgSample.src = "https://shorturl.at/rsuwx";
+        imgSample.width = "100";
+        mainDiv1.appendChild(imgSample);
+      }
+
       function makeTable() {
         let n = prompt("number of rows: ");
         let m = prompt("number of columns: ");
@@ -55,14 +62,14 @@
         tableSample = document.createElement("table");
         tableSample.setAttribute("border", "3");
 
-        for (i = 0; i < n; i++) {
+        for (i = 1; i <= n; i++) {
           row = document.createElement("tr");
           tableSample.appendChild(row);
 
-          for (j = 0; j < m; j++) {
+          for (j = 1; j <= m; j++) {
             tableData = document.createElement("td");
             row.appendChild(tableData);
-            tableData.innerText = "cell";
+            tableData.innerText = `cell in row ${i}, column ${j}`;
           }
           field1.appendChild(tableSample);
         }
@@ -92,7 +99,7 @@
         console.log(z);
 
         for (let k = 0; k < z; k++) {
-          arr1[k] = Math.floor(Math.random() * 100);
+          arr1[k] = Math.floor(Math.random() * 1000);
         }
         console.log("Array made with length of" + arr1.length);
 
@@ -131,7 +138,11 @@
           case "arrayInTable":
             makeArrayInTable();
             break;
+          case "img":
+            makeImg();
+            break;
         }
+        element.selectedIndex = 0;
       }
 
       function pageLoading() {
