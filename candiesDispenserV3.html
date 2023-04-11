@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.cdnfonts.com/css/candy" rel="stylesheet">
+                
+    <title>Candies Dispenser</title>
+  </head>
+  <body id="idBody" onload="pageLoading()">
+    <main id="mainContent"></main>
+    <script>
+      let main = document.getElementById("mainContent");
+      let body = document.getElementById('idBody')
+
+      let div1 = document.createElement('div');
+      let div2 = document.createElement('div');
+      let fieldset1 = document.createElement('fieldset');
+      let legend1 = document.createElement('legend');
+      let parag1 = document.createElement('p');
+      let h1 = document.createElement('h');
+
+      let selector = document.createElement('select');
+
+
+
+
+
+
+      legend1.innerHTML='Candies Dispenser';
+
+      body.style.backgroundImage = "url('https://wallpaperaccess.com/full/1170896.jpg')";
+
+      // main.style.backgroundImage = "url('https://shorturl.at/iBZ45')";
+
+      h1.innerText= 'Candies Dispenser';
+      h1.style.color =  '#7EE77E'         //'rgb(255, 195, 0)';
+      h1.style.fontWeight = 'bold';
+      h1.style.fontSize = '120px';
+      h1.style.fontFamily = "'Candy', sansSerif"
+      h1.style.display = 'flex';
+      h1.style.justifyContent = 'center'
+
+      parag1.innerText = 'Pick a candy!'
+      parag1.style.fontFamily = "'Candy', sansSerif"
+      parag1.style.color = 'rgb(72, 201, 176)';
+      parag1.style.fontSize = '80px'
+      parag1.style.fontWeight = 'bold';
+      parag1.style.textAlign = 'center'
+      
+
+      
+      
+      
+      
+      
+      
+      main.appendChild(h1);
+      main.appendChild(div1);
+      main.appendChild(div2)
+      
+      
+      div1.appendChild(parag1);
+
+
+      
+      function choose(element) {
+        switch (element.value) {
+          case "div":
+            makeDiv();
+            break;
+
+          case "p":
+            makeP();
+            break;
+
+          case "table":
+            makeTable();
+            break;
+
+          case "button":
+            
+            break;
+
+          case "array":
+            makeArrayInTable();
+            break;
+          case "img":
+            makeImg();
+            break;
+        }
+        element.selectedIndex = 0;
+      }
+
+
+
+      function selectorMaker() {
+  
+          //Create array of options to be added
+        let optionsArrValue = ['',"table","button","img","array" ];
+        let optionsArrTxt = ['Select any candy',"Table Chocolate ","Pudding Button","Pasty Img","Array Pankake" ];
+
+        //Create and append select list
+        let selector = document.createElement("select");
+        selector.id = "mySelect";
+        selector.style.zoom = '3';
+        div2.appendChild(selector);
+
+          //Create and append the options
+        for (let i = 0; i < optionsArrValue.length; i++) {
+          let option = document.createElement("option");
+          option.value = optionsArrValue[i];
+          option.text = optionsArrTxt[i];
+          selector.appendChild(option);
+        } 
+          // let defOp = document.createElement('option');
+          // defOp.value = '';
+          // defOp.text = 'Select any candy';
+          // selector.prepend(defOp)
+      }
+
+      function pageLoading() {
+          selectorMaker()
+      }
+    </script>
+    <link href="https://fonts.cdnfonts.com/css/candy" rel="stylesheet">
+                
+  </body>
+</html>
