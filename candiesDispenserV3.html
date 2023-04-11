@@ -31,6 +31,7 @@
       legend1.innerHTML='Candies Dispenser';
 
       body.style.backgroundImage = "url('https://wallpaperaccess.com/full/1170896.jpg')";
+      body.style.backgroundRepeat = 'no-repeat'
 
       // main.style.backgroundImage = "url('https://shorturl.at/iBZ45')";
 
@@ -67,9 +68,9 @@
       
       function choose(element) {
         switch (element.value) {
-          case "div":
-            makeDiv();
-            break;
+          // case "div":
+          //   makeDiv();
+          //   break;
 
           case "p":
             makeP();
@@ -93,6 +94,29 @@
         element.selectedIndex = 0;
       }
 
+      function makeTable() {
+        let n = prompt("number of rows: ");
+        let m = prompt("number of columns: ");
+
+        tableSample = document.createElement("table");
+        tableSample.setAttribute("border", "3");
+
+        for (i = 1; i <= n; i++) {
+          row = document.createElement("tr");
+          tableSample.appendChild(row);
+
+          for (j = 1; j <= m; j++) {
+            tableData = document.createElement("td");
+            row.appendChild(tableData);
+            tableData.innerText = `cell in row ${i}, column ${j}`;
+          }
+          div2.appendChild(tableSample);
+          tableSample.style.zoom = '3';
+          tableSample.style.backgroundImage = "url('https://shorturl.at/ehDNU')";
+          
+        }
+      }
+
 
 
       function selectorMaker() {
@@ -104,7 +128,11 @@
         //Create and append select list
         let selector = document.createElement("select");
         selector.id = "mySelect";
+        selector.setAttribute('onchange', 'choose(this)')
         selector.style.zoom = '3';
+        selector.style.display = 'flex';
+        selector.style.justifyContent = 'center'
+
         div2.appendChild(selector);
 
           //Create and append the options
